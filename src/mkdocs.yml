@@ -1,0 +1,25 @@
+site_name: nvim-lspconfig
+site_url: https://nvim-lsp.github.io/website
+repo_url: https://github.com/nvim-lsp/website
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/images/favicon.ico
+  palette:
+    primary: green
+    accent: green
+  features:
+    - navigation.expand
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+markdown_extensions:
+  - sane_lists
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.magiclink
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/neovim/nvim-lspconfig

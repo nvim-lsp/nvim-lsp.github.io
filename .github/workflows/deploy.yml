@@ -6,7 +6,7 @@ on:
       - feature/generator
 jobs:
   publish:
-    name: Deploy and publish
+    name: Build and publish
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main

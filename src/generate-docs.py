@@ -9,10 +9,8 @@ def generate_yaml(file, entries):
     langs = []
 
     for e in entries:
-        name = e["name"]
-        lang = {}
-        lang["%s (%s)" % (e["label"], name)] = "configurations/%s.md" % name
-        langs.append(lang)
+        name, lang = e["name"], e["language"]
+        langs.append({"%s (%s)" % (name, lang): "configurations/%s.md" % name})
 
     tpl["nav"] = [
         {"Home": "index.md"},
@@ -29,7 +27,7 @@ def generate_yaml(file, entries):
 
 
 def generate_header_md(entry, doc):
-    doc.new_header(level=1, title="%s (%s)" % (entry["label"], entry["name"]))
+    doc.new_header(level=1, title="%s (%s)" % (entry["name"], entry["language"]))
     doc.new_paragraph(entry["docs"]["description"])
 
 

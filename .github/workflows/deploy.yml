@@ -17,11 +17,15 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: |
-          sudo apt-get install -y neovim
           pip install mdutils
           pip install mkdocs-material
+      - name: Install neovim
+        uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: v0.6.1
       - name: Generate documentation
         run: ./scripts/docgen.sh
       - name: Deploy docs

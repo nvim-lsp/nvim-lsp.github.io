@@ -1,0 +1,30 @@
+name: Publish docs via GitHub Pages
+
+on:
+  push:
+    branches:
+      - feature/generator
+jobs:
+  publish:
+    name: Deploy and publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y neovim
+          pip install mdutils
+          pip install mkdocs-material
+      - name: Generate documentation
+        run: ./scripts/docgen.sh
+      - name: Deploy docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

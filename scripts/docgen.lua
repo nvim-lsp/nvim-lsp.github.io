@@ -94,7 +94,7 @@ end
 
 local function main()
     local parent = 'lspconfig/server_configurations/'
-    local root = 'src/lua/nvim-lspconfig/lua/' .. parent
+    local root = 'src/nvim-lspconfig/lua/' .. parent
     local list = {}
 
     -- Gather configurations from lspconfig

@@ -191,7 +191,7 @@ end
 local function load_config(name, config)
 	local docs = config.docs or {}
 	local lang = languages[name] or name
-	local data = {}--load_external_data(name, docs)
+	local data = load_external_data(name, docs)
 
 	local settings = {}
 	if data then

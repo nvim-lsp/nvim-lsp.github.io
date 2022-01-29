@@ -13,7 +13,7 @@ def generate_yaml(file, entries):
         langs.append({"%s (%s)" % (name, lang): "configurations/%s.md" % name})
 
     """ FIXME: Use query to do this properly """
-    tpl["nav"][2]["Configurations"][1]["Languages"] = langs
+    tpl["nav"][2]["Configurations"][1]["Configurations"] = langs
 
     return tpl
 

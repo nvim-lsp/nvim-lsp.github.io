@@ -28,7 +28,7 @@ nav:
   - Install: install.md
   - Configurations:
     - Introduction: configurations/index.md
-    - Languages:
+    - Configurations:
       - AUTOMATED: configurations/index.md
   - Help:
     - What is nvim-lspconfig?: help/index.md

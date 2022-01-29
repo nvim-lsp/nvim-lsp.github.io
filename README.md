@@ -1,6 +1,6 @@
-# website
+# nvim-lsp.github.io
 
-A website for lsp-mode
+A website for nvim-lsp
 
 ## Usage
 

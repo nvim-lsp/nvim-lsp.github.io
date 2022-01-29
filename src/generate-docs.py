@@ -12,34 +12,8 @@ def generate_yaml(file, entries):
         name, lang = e["name"], e["language"]
         langs.append({"%s (%s)" % (name, lang): "configurations/%s.md" % name})
 
-    tpl["nav"] = [
-        {"Home": "index.md"},
-        {"Install": "install.md"},
-        {
-            "Configurations": [
-                {"Introduction": "configurations/index.md"},
-                {"Languages": langs}
-            ]
-        },
-        {
-            "Help": [
-                {"What is nvim-lspconfig?": "help/index.md"},
-                {"Autocompletion": "help/autocomplete.md"},
-                {"Code Actions": "help/codeaction.md"},
-                {"Comparison to other LSP ecosystems": "help/compare.md"},
-                {"Complete init.lua example": "help/init.md"},
-                {"Connecting to remote language servers": "help/remote.md"},
-                {"Language spesific plugins": "help/plugins.md"},
-                {"Project local setting": "help/local.md"},
-                {"Running language servers in containers": "help/containers.md"},
-                {"Snippets": "help/snippets.md"},
-                {"UI Customization": "help/customization.md"},
-                {"Understanding setup {}": "help/setup.md"},
-                {"User contributed tips": "help/tips.md"},
-
-            ]
-        },
-    ]
+    """ FIXME: Use query to do this properly """
+    tpl["nav"][2]["Configurations"][1]["Languages"] = langs
 
     return tpl
 

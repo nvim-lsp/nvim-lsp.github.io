@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # Configurations
 
 Installing language servers manually is very easy. The installation instructions for each server can be found in the navigation.

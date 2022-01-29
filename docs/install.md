@@ -1,3 +1,7 @@
+---
+hide:
+  - navigation
+---
 # Install
 
 * Requires [Neovim v0.6.1](https://github.com/neovim/neovim/releases/tag/v0.6.1) or [Nightly](https://github.com/neovim/neovim/releases/tag/nightly). Update Neovim and 'lspconfig' before reporting an issue.

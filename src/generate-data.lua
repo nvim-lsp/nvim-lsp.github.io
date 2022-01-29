@@ -243,10 +243,9 @@ local function load_config(name, config)
                 table.insert(root_dir, fileContent[i])
             end
 
-            v = table.concat(root_dir, '\n')
-            v = string.gsub(v, '.*function', 'function')
+            v = table.concat(root_dir, '\n'):gsub('.*function', 'function')
         else
-            v = vim.inspect(v)
+            v = vim.inspect(v):gsub('<function %d>', 'function() --[[ see lua configuration file ]] end')
         end
 
         table.insert(default_config, string.format('%s = %s,', k, v))

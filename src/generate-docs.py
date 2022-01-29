@@ -20,7 +20,25 @@ def generate_yaml(file, entries):
                 {"Introduction": "configurations/index.md"},
                 {"Languages": langs}
             ]
-        }
+        },
+        {
+            "Help": [
+                {"What is nvim-lspconfig?": "help/index.md"},
+                {"Autocompletion": "help/autocomplete.md"},
+                {"Code Actions": "help/codeaction.md"},
+                {"Comparison to other LSP ecosystems": "help/compare.md"},
+                {"Complete init.lua example": "help/init.md"},
+                {"Connecting to remote language servers": "help/remote.md"},
+                {"Language spesific plugins": "help/plugins.md"},
+                {"Project local setting": "help/local.md"},
+                {"Running language servers in containers": "help/containers.md"},
+                {"Snippets": "help/snippets.md"},
+                {"UI Customization": "help/customization.md"},
+                {"Understanding setup {}": "help/setup.md"},
+                {"User contributed tips": "help/tips.md"},
+
+            ]
+        },
     ]
 
     return tpl

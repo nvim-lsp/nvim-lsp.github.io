@@ -7,8 +7,20 @@ theme:
   logo: assets/logo.png
   favicon: assets/images/favicon.ico
   palette:
-    primary: green
-    accent: green
+    - media: "(prefers-color-scheme: light)" 
+      primary: green
+      accent: green
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)" 
+      primary: green
+      accent: green
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
   features:
     - navigation.expand
     - navigation.instant

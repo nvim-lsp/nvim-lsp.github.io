@@ -135,13 +135,6 @@ local languages = {
     zls = 'Zig'
 }
 
--- https://github.github.com/gfm/#backslash-escapes
-local function excape_markdown_punctuations(str)
-    local pattern =
-    '\\(\\*\\|\\.\\|?\\|!\\|"\\|#\\|\\$\\|%\\|\'\\|(\\|)\\|,\\|-\\|\\/\\|:\\|;\\|<\\|=\\|>\\|@\\|\\[\\|\\\\\\|\\]\\|\\^\\|_\\|`\\|{\\|\\\\|\\|}\\)'
-    return vim.fn.substitute(str, pattern, '\\\\\\0', 'g')
-end
-
 local function read_remote_json(module, package_json)
 	local function create_tmpdir(closure)
 		local tempdir = os.getenv('DOCGEN_TEMPDIR') or vim.loop.fs_mkdtemp('/tmp/nvim-lsp.XXXXXX')
@@ -202,7 +195,7 @@ local function load_config(name, config)
                     type = v.type,
                     items = v.items,
                     default = vim.inspect(v.default),
-                    description = v.description and excape_markdown_punctuations(v.description) or nil,
+                    description = v.description,
                 }
 			end
 		end

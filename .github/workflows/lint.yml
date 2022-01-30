@@ -1,0 +1,25 @@
+name: Lint tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+jobs:
+  lint:
+    name: Lint and style check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: JohnnyMorganz/stylua-action@1.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          args: --check src
+      - uses: Jayrgo/luacheck-action@v1
+        with:
+          files: 'src'
+      - uses: rickstaa/action-black@v1
+        with:
+          black_args: "src --check"
+      - uses: wagoid/commitlint-github-action@v4

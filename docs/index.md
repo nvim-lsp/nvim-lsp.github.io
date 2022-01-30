@@ -24,5 +24,6 @@ Neovim supports the Language Server Protocol (LSP), which means it acts as a cli
 - format
 - refactor
 
-Neovim provides an interface for all of these features, and the language server client is designed to be highly extensible to allow plugins to integrate language server features which are not yet present in Neovim core such as [**auto**-completion](https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion) (as opposed to manual completion with omnifunc) and [snippet integration](https://github.com/neovim/nvim-lspconfig/wiki/Snippets).
+Neovim provides an interface for all of these features, and the language server client is designed to be highly extensible to allow plugins to integrate language server features which are not yet present
+in Neovim core such as [**auto**-completion](help/autocomplete.md) (as opposed to manual completion with omnifunc) and [snippet integration](help/snippets.md).
 

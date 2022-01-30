@@ -91,7 +91,7 @@ for _, lsp in pairs(servers) do
 end
 ```
 
-Manual, triggered completion is provided by neovim's built-in omnifunc. For **auto**completion, a general purpose [autocompletion plugin](https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion) is required. 
+Manual, triggered completion is provided by neovim's built-in omnifunc. For **auto**completion, a general purpose [autocompletion plugin](help/autocomplete.md) is required. 
 
 ## Debugging
 

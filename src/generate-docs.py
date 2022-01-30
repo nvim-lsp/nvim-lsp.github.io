@@ -1,5 +1,5 @@
 from mdutils.mdutils import MdUtils
-from subprocess import run, CalledProcessError
+from subprocess import run
 import yaml
 import json
 import os
@@ -38,7 +38,7 @@ def generate_yaml(file, entries):
 
 def generate_header_md(entry, doc):
     doc.new_header(level=1, title="%s (%s)" % (entry["name"], entry["language"]))
-    doc.new_paragraph(entry["docs"]["description"])
+    doc.write(entry["docs"]["description"], wrap_width=9999999999)
 
 
 def generate_setup_md(entry, doc):

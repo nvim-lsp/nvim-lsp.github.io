@@ -1,7 +1,25 @@
 from mdutils.mdutils import MdUtils
+from subprocess import run, CalledProcessError
 import yaml
 import json
 import os
+
+
+def format_lua(name, code):
+    try:
+        prefix = "local config = "
+        surrounded = "%s{%s}" % (prefix, code)
+        proc = run(
+            ["stylua", "-"],
+            input=surrounded.encode(),
+            check=True,
+            capture_output=True
+        )
+        return proc.stdout.decode().replace(prefix, "")
+    except:
+        print("Failed to stylua: %s" % name)
+
+    return code
 
 
 def generate_yaml(file, entries):
@@ -39,7 +57,7 @@ def generate_setup_md(entry, doc):
 
     if len(entry["default_config"]) > 0:
         doc.new_header(level=3, title="Default values")
-        doc.insert_code(entry["default_config"], language="lua")
+        doc.insert_code(format_lua(entry["name"], entry["default_config"]), language="lua")
 
 
 def generate_settings_md(entry, doc):

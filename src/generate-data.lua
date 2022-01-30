@@ -230,8 +230,9 @@ local function load_config(name, config)
         local v = config.default_config[k]
         if type(v) == 'function' then
             local info = debug.getinfo(v)
-            local prefix = '@' .. vim.fn.getcwd() .. '/src/'
-            v = string.format('function()\n  -- uses %s:%s\nend', info.source:gsub(prefix, ''), info.linedefined)
+            local start = info.source:find('nvim--lspconfig')
+            local filename = info.source:sub(start)
+            v = string.format('function()\n  -- uses %s:%s\nend', filename, info.linedefined)
         else
             local rep = string.format('function()\n  -- see nvim-lspconfig/lua/lspconfig/server_configurations/%s.lua\nend', name)
             v = vim.inspect(v):gsub('<function %d>', rep)

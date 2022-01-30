@@ -78,7 +78,7 @@ def generate_settings_md(entry, doc):
                         settings.append("Type: `%s`" % v["type"])
 
                 if "default" in v:
-                    settings.append("Default: `%s`" % v["default"])
+                    settings.append("Default: `%s`" % (v["default"] == "vim.NIL" and "nil" or v["default"]))
 
                 if "items" in v:
                     settings.append("Array items: `%s`" % v["items"])

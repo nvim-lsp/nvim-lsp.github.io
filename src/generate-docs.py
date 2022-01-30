@@ -49,7 +49,7 @@ def generate_setup_md(entry, doc):
     if type(entry["commands"]) is dict:
         items = sorted(list(entry["commands"].items()))
         for k, v in items:
-            cmds.append("%s: %s" % (k, v["description"]))
+            cmds.append("`%s`: %s" % (k.startswith(":") and k or ":%s" % k, v["description"]))
 
     if len(cmds) > 0:
         doc.new_header(level=3, title="Commands")

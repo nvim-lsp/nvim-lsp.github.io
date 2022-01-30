@@ -10,10 +10,7 @@ def format_lua(name, code):
         prefix = "local config = "
         surrounded = "%s{%s}" % (prefix, code)
         proc = run(
-            ["stylua", "-"],
-            input=surrounded.encode(),
-            check=True,
-            capture_output=True
+            ["stylua", "-"], input=surrounded.encode(), check=True, capture_output=True
         )
         return proc.stdout.decode().replace(prefix, "")
     except:
@@ -47,13 +44,17 @@ def generate_setup_md(entry, doc):
 
     if len(entry["default_config"]) > 0:
         doc.new_header(level=3, title="Default values")
-        doc.insert_code(format_lua(entry["name"], entry["default_config"]), language="lua")
+        doc.insert_code(
+            format_lua(entry["name"], entry["default_config"]), language="lua"
+        )
 
     cmds = []
     if type(entry["commands"]) is dict:
         items = sorted(list(entry["commands"].items()))
         for k, v in items:
-            cmds.append("`%s`: %s" % (k.startswith(":") and k or ":%s" % k, v["description"]))
+            cmds.append(
+                "`%s`: %s" % (k.startswith(":") and k or ":%s" % k, v["description"])
+            )
 
     if len(cmds) > 0:
         doc.new_header(level=2, title="Commands")
@@ -78,7 +79,10 @@ def generate_settings_md(entry, doc):
                         settings.append("Type: `%s`" % v["type"])
 
                 if "default" in v:
-                    settings.append("Default: `%s`" % (v["default"] == "vim.NIL" and "nil" or v["default"]))
+                    settings.append(
+                        "Default: `%s`"
+                        % (v["default"] == "vim.NIL" and "nil" or v["default"])
+                    )
 
                 if "items" in v:
                     settings.append("Array items: `%s`" % v["items"])
@@ -102,12 +106,12 @@ def generate_md(entry):
 
 
 def main():
-    with open('data.json', 'r') as f:
+    with open("data.json", "r") as f:
         data = json.load(f)
 
-        with open('src/mkdocs.yml', 'r') as d:
+        with open("src/mkdocs.yml", "r") as d:
             conf = generate_yaml(d, data)
-            with open('mkdocs.yml', 'w') as t:
+            with open("mkdocs.yml", "w") as t:
                 yaml.dump(conf, t)
 
         for entry in data:

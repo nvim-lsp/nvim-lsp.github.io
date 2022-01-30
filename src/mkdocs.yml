@@ -1,6 +1,7 @@
 site_name: nvim-lspconfig
 site_url: https://nvim-lsp.github.io/
 repo_url: https://github.com/neovim/nvim-lspconfig/
+edit_uri: https://github.com/nvim-lsp/nvim-lsp.github.io/edit/main/docs
 theme:
   name: material
   logo: assets/logo.png

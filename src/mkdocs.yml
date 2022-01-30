@@ -7,14 +7,14 @@ theme:
   logo: assets/logo.png
   favicon: assets/images/favicon.ico
   palette:
-    - media: "(prefers-color-scheme: light)" 
+    - media: "(prefers-color-scheme: light)"
       primary: green
       accent: green
       scheme: default
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)" 
+    - media: "(prefers-color-scheme: dark)"
       primary: green
       accent: green
       scheme: slate
@@ -36,6 +36,8 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/neovim/nvim-lspconfig
+extra_css:
+  - assets/extra.css
 nav:
   - Home: index.md
   - Install: install.md

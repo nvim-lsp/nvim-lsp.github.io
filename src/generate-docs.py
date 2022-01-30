@@ -45,6 +45,10 @@ def generate_setup_md(entry, doc):
     doc.new_header(level=2, title="Setup")
     doc.insert_code("require'lspconfig'.%s.setup{}" % entry["name"], language="lua")
 
+    if len(entry["default_config"]) > 0:
+        doc.new_header(level=3, title="Default values")
+        doc.insert_code(format_lua(entry["name"], entry["default_config"]), language="lua")
+
     cmds = []
     if type(entry["commands"]) is dict:
         items = sorted(list(entry["commands"].items()))
@@ -52,12 +56,8 @@ def generate_setup_md(entry, doc):
             cmds.append("`%s`: %s" % (k.startswith(":") and k or ":%s" % k, v["description"]))
 
     if len(cmds) > 0:
-        doc.new_header(level=3, title="Commands")
+        doc.new_header(level=2, title="Commands")
         doc.new_list(cmds)
-
-    if len(entry["default_config"]) > 0:
-        doc.new_header(level=3, title="Default values")
-        doc.insert_code(format_lua(entry["name"], entry["default_config"]), language="lua")
 
 
 def generate_settings_md(entry, doc):

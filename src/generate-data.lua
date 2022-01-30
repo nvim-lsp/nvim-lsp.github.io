@@ -230,25 +230,15 @@ local function load_config(name, config)
         local v = config.default_config[k]
         if type(v) == 'function' then
             local info = debug.getinfo(v)
-            local file = io.open(string.sub(info.source, 2), 'r')
-
-            local fileContent = {}
-            for line in file:lines() do
-                table.insert(fileContent, line)
-            end
-            io.close(file)
-
-            local root_dir = {}
-            for i = info.linedefined, info.lastlinedefined do
-                table.insert(root_dir, fileContent[i])
-            end
-
-            v = table.concat(root_dir, '\n'):gsub('.*function', 'function')
+            local prefix = '@' .. vim.fn.getcwd() .. '/src/'
+            v = string.format('function()\n  -- uses %s:%s\nend', info.source:gsub(prefix, ''), info.linedefined)
         else
-            v = vim.inspect(v):gsub('<function %d>', 'function() --[[ see lua configuration file ]] end')
+            local rep = string.format('function()\n  -- see nvim-lspconfig/lua/lspconfig/server_configurations/%s.lua\nend', name)
+            v = vim.inspect(v):gsub('<function %d>', rep)
         end
 
-        table.insert(default_config, string.format('%s = %s,', k, v))
+        local suffix = string.sub(v, -1) == ',' and '' or ','
+        table.insert(default_config, string.format('%s = %s%s', k, v, suffix))
     end
 
 	return {

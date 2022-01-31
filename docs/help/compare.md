@@ -1,3 +1,6 @@
+---
+title: Comparison to other LSP ecosystems
+---
 # Comparison to other LSP ecosystems (CoC, vim lsp, etc.)
 
 ## What is included in the built-in client?

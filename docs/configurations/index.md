@@ -2,7 +2,7 @@
 hide:
   - toc
 ---
-# Configurations
+# Introduction
 
 Configuration instructions for each language server can be found in the navigation.
 

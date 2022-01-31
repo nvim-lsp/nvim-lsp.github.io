@@ -9,6 +9,7 @@ This site is built using mkdocs, which requires `python` and `pip`.
 ```
 pip install mdutils
 pip install mkdocs-material
+pip install mkdocs-awesome-pages-plugin
 ```
 
 Then generate the documentation with:
@@ -21,7 +22,7 @@ Now you have documentation in `site/`.
 
 ## Development
 
-To serve a development version run the following after generation:
+To serve a development version run:
 
 ```
 mkdocs serve

@@ -7,9 +7,7 @@ A website for nvim-lsp
 This site is built using mkdocs, which requires `python` and `pip`.
 
 ```
-pip install mdutils
-pip install mkdocs-material
-pip install mkdocs-awesome-pages-plugin
+pip install -r requirements.txt
 ```
 
 Then generate the documentation with:

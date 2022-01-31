@@ -1,5 +1,4 @@
 site/
-mkdocs.yml
 data.json
 docs/configurations/*.md
 !docs/configurations/index.md

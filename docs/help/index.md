@@ -1,6 +1,7 @@
-# Help
-
-## What is nvim-lspconfig? Does nvim-lspconfig provide a language server client? 
+---
+title: What is nvim-lspconfig?
+---
+# What is nvim-lspconfig? Does nvim-lspconfig provide a language server client?
 
 nvim-lspconfig includes *none* of the language server client implementation. All of the code for the language server client is located in the core of neovim. Lspconfig is a helper plugin that leverages the language client API in neovim core for an easier to use experience. Lspconfig handles:
 

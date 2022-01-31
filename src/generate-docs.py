@@ -1,6 +1,5 @@
 from mdutils.mdutils import MdUtils
 from subprocess import run
-import yaml
 import json
 import os
 
@@ -17,20 +16,6 @@ def format_lua(name, code):
         print("Failed to stylua: %s" % name)
 
     return code
-
-
-def generate_yaml(file, entries):
-    tpl = yaml.safe_load(file)
-    langs = []
-
-    for e in entries:
-        name, lang = e["name"], e["language"]
-        langs.append({"%s (%s)" % (name, lang): "configurations/%s.md" % name})
-
-    """ FIXME: Use query to do this properly """
-    tpl["nav"][2]["Configurations"][1]["Configurations"] = langs
-
-    return tpl
 
 
 def generate_header_md(entry, doc):
@@ -108,11 +93,6 @@ def generate_md(entry):
 def main():
     with open("data.json", "r") as f:
         data = json.load(f)
-
-        with open("src/mkdocs.yml", "r") as d:
-            conf = generate_yaml(d, data)
-            with open("mkdocs.yml", "w") as t:
-                yaml.dump(conf, t)
 
         for entry in data:
             generate_md(entry)

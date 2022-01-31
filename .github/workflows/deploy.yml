@@ -18,10 +18,7 @@ jobs:
         with:
           python-version: 3
       - name: Install Python dependencies
-        run: |
-          pip install mdutils
-          pip install mkdocs-material
-          pip install mkdocs-awesome-pages-plugin
+        run: pip install -r requirements.txt
       - name: Install Stylua
         run: |
           wget "https://github.com/JohnnyMorganz/StyLua/releases/download/v0.11.3/stylua-0.11.3-linux.zip" -O /tmp/stylua.zip

@@ -1,0 +1,13 @@
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #D3E4DB;
+  --md-typeset-a-color: #8ec77e;
+  --md-default-bg-color: #E7EEE8;
+  --md-primary-bg-color: #292f2b;
+  --md-typeset-color: #292f2b;
+}
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #0B151B;
+  --md-typeset-a-color: #8ec77e;
+  --md-default-bg-color: #0F191F;
+  --md-typeset-color: #c7d6d0;
+}

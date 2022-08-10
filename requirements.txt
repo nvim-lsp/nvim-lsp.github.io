@@ -1,3 +1,8 @@
 mdutils
 mkdocs-material
 mkdocs-awesome-pages-plugin
+
+# Fixes dependency issues
+jinja2==3.0.3
+pygments==2.11
+pymdown-extensions==9.3

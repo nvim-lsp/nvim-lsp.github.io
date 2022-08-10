@@ -135,6 +135,20 @@ local languages = {
     zls = 'Zig',
 }
 
+local function replace_functions_recursive(tbl)
+    local filtered = {}
+    for k, v in pairs(tbl) do
+        if type(v) == 'table' then
+            filtered[k] = replace_functions_recursive(v)
+        elseif type(v) == 'function' then
+            filtered[k] = '<function>'
+        else
+            filtered[k] = v
+        end
+    end
+    return filtered
+end
+
 local function read_remote_json(module, package_json)
     local function create_tmpdir(closure)
         local tempdir = os.getenv('DOCGEN_TEMPDIR') or vim.loop.fs_mkdtemp('/tmp/nvim-lsp.XXXXXX')
@@ -241,9 +255,9 @@ local function load_config(name, config)
     return {
         name = name,
         language = lang,
-        docs = docs,
         settings = settings,
         commands = commands,
+        docs = replace_functions_recursive(docs),
         default_config = table.concat(default_config, '\n'),
     }
 end
